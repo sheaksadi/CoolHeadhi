@@ -110,6 +110,13 @@ public class EntityKilled implements Listener {
             ItemStack it =new ItemStack(Material.SKELETON_SKULL);
             return it;
         }
+        if(entity == EntityType.SHEEP){
+        Sheep sheep=(Sheep)ett;
+        name=sheep.getColor().name().toLowerCase().substring(0, 1).toUpperCase() +sheep.getColor().name().toLowerCase().substring(1)+"Sheep Head";
+            ;
+
+        }
+
 
         skullMeta.setDisplayName(name);
         skullMeta.setLocalizedName(name);

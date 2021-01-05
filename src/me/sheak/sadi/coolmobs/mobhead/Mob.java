@@ -160,32 +160,24 @@ public class Mob {
                 if(sheep.getColor().toString().equalsIgnoreCase("LIME")  )
                     s= "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmJlYWQwMzQyYWU4OWI4ZGZkM2Q3MTFhNjBhZGQ2NWUyYzJiZmVhOGQwYmQyNzRhNzU4N2RlZWQ3YTMxODkyZSJ9fX0";
 
-                if(sheep.getColor().toString().equalsIgnoreCase("WHITE")  )
-                    s= "";
+                if(sheep.getColor().toString().equalsIgnoreCase("MAGENTA")  )
+                    s= "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYThlMWYwNWYwZGFjY2E2M2E3MzE4NzRmOTBhNjkzZmZlMjFmZjgzMmUyYjFlMWQwN2I2NWM4NzY0NTI2ZjA4OSJ9fX0";
 
-                if(sheep.getColor().toString().equalsIgnoreCase("WHITE")  )
-                    s= "";
+                if(sheep.getColor().toString().equalsIgnoreCase("ORANGE")  )
+                    s= "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjY4NGQwNGZhODBhYTU5ZGExNDUzNWRlYWQzODgzZDA5N2ZiYmE0MDA2MjU2NTlmNTI1OTk2NDgwNmJhNjZmMCJ9fX0";
 
-                if(sheep.getColor().toString().equalsIgnoreCase("WHITE")  )
-                    s= "";
+                if(sheep.getColor().toString().equalsIgnoreCase("PINK")  )
+                    s= "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjM2M2U4YTkzZDI4N2E4NGU2NDAzMDlhZTgzY2ExZGUwYTBiMjU3NTA1YTIwZWM1NWIzMzQ5ZDQwYTQ0ODU0In19fQ";
 
-                if(sheep.getColor().toString().equalsIgnoreCase("WHITE")  )
-                    s= "";
+                if(sheep.getColor().toString().equalsIgnoreCase("RED")  )
+                    s= "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTQ3OGUwNTcxNThkZTZmNDVlMjU0MWNkMTc3ODhlNjQwY2NiNTk3MjNkZTU5YzI1NGU4MmFiNTcxMWYzZmMyNyJ9fX0";
 
-                if(sheep.getColor().toString().equalsIgnoreCase("WHITE")  )
-                    s= "";
+                if(sheep.getColor().toString().equalsIgnoreCase("YELLOW")  )
+                    s= "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTRiMjhmMDM1NzM1OTA2ZjgyZmZjNGRiYTk5YzlmMGI1NTI0MGU0MjZjZDFjNTI1YTlhYTc3MTgwZWVjNDkzNCJ9fX0";
 
-                if(sheep.getColor().toString().equalsIgnoreCase("WHITE")  )
-                    s= "";
+                if(sheep.getColor().toString().equalsIgnoreCase("PURPLE")  )
+                    s= "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzQ0OWQwODI5MWRhZTQ1YTI0NjczNjE5NjAyZjQzNWI1N2Y0Y2Q0ZTllOThkMmUwZmJlYzRmMTgxNDQ3ODFkMyJ9fX0";
 
-                if(sheep.getColor().toString().equalsIgnoreCase("WHITE")  )
-                    s= "";
-
-                if(sheep.getColor().toString().equalsIgnoreCase("WHITE")  )
-                    s= "";
-
-                if(sheep.getColor().toString().equalsIgnoreCase("WHITE")  )
-                    s= "";
 
                 try {
                     if (sheep.getCustomName()=="jeb_")
