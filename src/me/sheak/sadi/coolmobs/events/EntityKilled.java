@@ -184,11 +184,25 @@ public class EntityKilled implements Listener {
         if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2U2NDY2MzAyYTVhYjQzOThiNGU0NzczNDk4MDhlNWQ5NDAyZWEzYWQ4ZmM0MmUyNDQ2ZTRiZWQwYTVlZDVlIn19fQ")
             name="Brown Mushroom_cow Head";
 
+        if(entity==EntityType.PANDA){
+            Panda panda =(Panda)ett;
+            name=panda.getMainGene().toString() .toLowerCase().substring(0, 1).toUpperCase() +panda.getMainGene().toString() .toLowerCase().substring(1)+" Panda Head";
+
+        }
+        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTlkZjQ3ZTAxNWQ1YzFjNjhkNzJiZTExYmI2NTYzODBmYzZkYjUzM2FhYjM4OTQxYTkxYjFkM2Q1ZTM5NjQ5NyJ9fX0")
+            name="Panda Head";
+
+        if(entity==EntityType.PARROT){
+            Parrot parrot=(Parrot)ett;
+            name=parrot.getVariant().toString() .toLowerCase().substring(0, 1).toUpperCase() +parrot.getVariant().toString() .toLowerCase().substring(1)+" Parrot Head";
+
+        }
 
 
+        String finalName =name.replace("_"," ");
 
-        skullMeta.setDisplayName(name);
-        skullMeta.setLocalizedName(name);
+        skullMeta.setDisplayName(finalName);
+        skullMeta.setLocalizedName(finalName);
 
         head.setItemMeta(skullMeta);
 
