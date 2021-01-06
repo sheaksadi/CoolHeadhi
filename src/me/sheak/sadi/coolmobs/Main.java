@@ -14,14 +14,14 @@ import java.io.File;
 
 public class Main extends JavaPlugin {
 
-    public File customConfigFile;
-    public FileConfiguration customConfig;
 
 
     @Override
     public void onEnable() {
+        this.saveDefaultConfig();
+        FileConfiguration config=this.getConfig();
         getServer().getPluginManager().registerEvents(new PlayerKilled(), this);
-        getServer().getPluginManager().registerEvents(new EntityKilled(), this);
+        getServer().getPluginManager().registerEvents(new EntityKilled(this), this);
         getServer().getConsoleSender().sendMessage(ChatColor.LIGHT_PURPLE + "Coolheads plugin is workink");
     }
 

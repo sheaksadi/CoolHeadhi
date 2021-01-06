@@ -2,9 +2,9 @@ package me.sheak.sadi.coolmobs.events;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+import me.sheak.sadi.coolmobs.Main;
 import me.sheak.sadi.coolmobs.mobhead.Mob;
 import org.bukkit.Material;
-import org.bukkit.block.Skull;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,11 +14,21 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Random;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class EntityKilled implements Listener {
+    Main plugin;
+
+    public EntityKilled (Main instance){
+        plugin=instance;
+    }
+
+
     @EventHandler
     public void onkilled(EntityDeathEvent e){
+        plugin.saveDefaultConfig();
 
         Entity entity =e.getEntity();
 
@@ -27,6 +37,40 @@ public class EntityKilled implements Listener {
         if(!(ett.getKiller() instanceof  Player)){
             return;
         }
+        AtomicBoolean xo = new AtomicBoolean(false);
+
+
+        plugin.getConfig().getConfigurationSection("Droppercent.Mobs").getKeys(false).forEach(key ->{
+            if(key.equalsIgnoreCase(e.getEntityType().toString())){
+                Double percent = Double.valueOf(0);
+                percent=Double.parseDouble (plugin.getConfig().getString("Droppercent.Mobs."+key));
+
+
+                Random random=new Random();
+
+
+                int a= (int) (1/percent);
+                int b=random.nextInt(a)+1;
+                //testing code
+                ett.getKiller().sendMessage(a+"  d  "+percent+ "  "+b);
+
+
+                if( b  != 1) {
+                    plugin.saveDefaultConfig();
+                    xo.set(true);
+
+                }
+
+            }
+        });
+
+
+
+        if(xo.get() ==true)
+            return;
+
+
+
 
         Mob m =new Mob();
         String url= m.sortmob(e.getEntityType(),e.getEntity()) ;
@@ -98,6 +142,8 @@ public class EntityKilled implements Listener {
 
         if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjcyN2QwYWIwM2Y1Y2QwMjJmODcwNWQzZjdmMTMzY2E0OTIwZWFlOGUxZTQ3YjUwNzQ0MzNhMTM3ZTY5MWU0ZSJ9fX0")
             name="Pollinated Bee Head";
+
+
         if(url=="costom1"){
             ItemStack it =new ItemStack(Material.ZOMBIE_HEAD);
             return it;
@@ -113,9 +159,18 @@ public class EntityKilled implements Listener {
         if(entity == EntityType.SHEEP){
         Sheep sheep=(Sheep)ett;
         name=sheep.getColor().name().toLowerCase().substring(0, 1).toUpperCase() +sheep.getColor().name().toLowerCase().substring(1)+"Sheep Head";
-            ;
-
         }
+        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjMzMzI2NzY1YTE5MGViZjkwZDU0ODZkNzFmMjBlMjU5N2U0YmVlMmEzOTFmZWNiYmQ4MGRlYmZlMWY4MmQ3OCJ9fX0")
+            name="Jeb_  Head";
+        if(entity==EntityType.CAT){
+            Cat cat=(Cat)ett;
+            name=cat.getCatType().toString().toLowerCase().substring(0, 1).toUpperCase() +cat.getCatType().toString().toLowerCase().substring(1)+"Cat Head";
+        }
+        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGZkMTBjOGU3NWY2NzM5OGM0NzU4N2QyNWZjMTQ2ZjMxMWMwNTNjYzVkMGFlYWI4NzkwYmNlMzZlZTg4ZjVmOCJ9fX0")
+            name="Tuxedo Cat Head";
+
+        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjExM2RiZDNjNmEwNzhhMTdiNGVkYjc4Y2UwN2Q4MzZjMzhkYWNlNTAyN2Q0YjBhODNmZDYwZTdjYTdhMGZjYiJ9fX0")
+            name="Ginger Cat Head";
 
 
         skullMeta.setDisplayName(name);

@@ -1,0 +1,62 @@
+#put vallue 1.0 - 0.00000000001
+Droppercent:
+  Mobs:
+    CAT: 0.02
+    creeper: 0.005
+    zombie: 0.002
+    skeleton: 0.002
+    witherskeleton: 0.025
+    spider: 0.002
+    enderman: 0.002
+    blaze: 0.002
+    horse: 0.002
+    donkey: 0.002
+    squid: 0.005
+    silverfish: 0.005
+    enderdragon: 0.05
+    slime: 0.001
+    irongolem: 0.005
+    mushroomcow: 0.002
+    bat: 0.005
+    zombifiedpiglin: 0.00
+    snowman: 0.002
+    ghast: 0.005
+    pig: 0.002
+    sheep: 0.002
+    cow: 0.002
+    chicken: 0.002
+    ocelot: 0.005
+    witch: 0.005
+    magmacube: 0.001
+    wolf: 0.002
+    cavespider: 0.002
+    rabbit: 0.002
+    guardian: 0.025
+    elderguardian: 0.030
+    polarbear: 0.005
+    shulker: 0.002
+    stray: 0.005
+    endermite: 0.002
+    evoker: 0.005
+    illusioner: 0.005
+    vindicator: 0.005
+    wither: 0.005
+    vex: 0.004
+    llama: 0.008
+    parrot: 0.008
+    husk: 0.002
+    zombievillager: 0.002
+    skeletonhorse: 0.002
+    zombiehorse: 0.002
+    mule: 0.002
+    turtle: 0.002
+    phantom: 0.001
+    cod: 0.002
+    salmon: 0.002
+    pufferfish: 0.002
+    tropicalfish: 0.002
+    drowned: 0.002
+    dolphin: 0.002
+    #new added mobs
+    villager: 1.0
+
