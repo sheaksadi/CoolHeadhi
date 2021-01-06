@@ -67,7 +67,7 @@ public class EntityKilled implements Listener {
 
 
         if(xo.get() ==true)
-            return;
+           return;
 
 
 
@@ -158,7 +158,7 @@ public class EntityKilled implements Listener {
         }
         if(entity == EntityType.SHEEP){
         Sheep sheep=(Sheep)ett;
-        name=sheep.getColor().name().toLowerCase().substring(0, 1).toUpperCase() +sheep.getColor().name().toLowerCase().substring(1)+"Sheep Head";
+        name=sheep.getColor().name().toLowerCase().substring(0, 1).toUpperCase() +sheep.getColor().name().toLowerCase().substring(1)+" Sheep Head";
         }
         if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjMzMzI2NzY1YTE5MGViZjkwZDU0ODZkNzFmMjBlMjU5N2U0YmVlMmEzOTFmZWNiYmQ4MGRlYmZlMWY4MmQ3OCJ9fX0")
             name="Jeb_  Head";
@@ -171,6 +171,20 @@ public class EntityKilled implements Listener {
 
         if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjExM2RiZDNjNmEwNzhhMTdiNGVkYjc4Y2UwN2Q4MzZjMzhkYWNlNTAyN2Q0YjBhODNmZDYwZTdjYTdhMGZjYiJ9fX0")
             name="Ginger Cat Head";
+
+        if(entity==EntityType.HORSE){
+            Horse horse=(Horse)ett;
+            name=horse.getColor().name().toLowerCase().substring(0, 1).toUpperCase() +horse.getColor().name().toLowerCase().substring(1)+" Horse Head";
+
+        }
+
+        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDE0MzYzNzdlYjRjNGI0ZTM5ZmIwZTFlZDg4OTlmYjYxZWUxODE0YTkxNjliOGQwODcyOWVmMDFkYzg1ZDFiYSJ9fX0")
+            name="Arctic Fox Head";
+
+        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2U2NDY2MzAyYTVhYjQzOThiNGU0NzczNDk4MDhlNWQ5NDAyZWEzYWQ4ZmM0MmUyNDQ2ZTRiZWQwYTVlZDVlIn19fQ")
+            name="Brown Mushroom_cow Head";
+
+
 
 
         skullMeta.setDisplayName(name);
