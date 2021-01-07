@@ -4,7 +4,11 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import me.sheak.sadi.coolmobs.Main;
 import me.sheak.sadi.coolmobs.mobhead.Mob;
+import net.minecraft.server.v1_16_R3.NBTBase;
+import net.minecraft.server.v1_16_R3.NBTTagCompound;
+import net.minecraft.server.v1_16_R3.NBTTagString;
 import org.bukkit.Material;
+import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,8 +16,7 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.lang.reflect.Field;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -110,6 +113,21 @@ public class EntityKilled implements Listener {
         if(url == null)
             return null;
         //String name = type;
+        if(url=="custom4"){
+            Random rand =new Random();
+            if(rand.nextInt(5)+1==1)
+                url="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDM2ODJiMDYyMDNiOWRlNGMyODU0MTA3MWEyNmNkYzM0MGRkMjVkNGMzNzJiNzAyM2VjMmY0MTIwMjFkNjJmNyJ9fX0";
+
+            else if(rand.nextInt(5)+1==2)
+                url="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjM3YzU4MTRhOTJmOGVjMGY2YWU5OTMzYWJlOTU0MmUxNjUxOTA3NjhlNzYwNDc4NTQzYWViZWVkNDAyN2MyNyJ9fX0";
+
+            else if(rand.nextInt(5)+1==3)
+                url="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzE5NmViOGQ1OTljNGZlZjUzYTk3MTc2YjcyZmY4ZmM0MWUzMmE2NmExNTlmZDQ1MTkwYTBkYTE1NDU4N2UxMiJ9fX0";
+
+            else
+                url="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWRhMTA4MjhmNjNiN2VjZGVmZDc2N2IzMjQ1ZmJkYWExM2MzZWMwYzZiMTM3NzRmMWVlOGQzMDdjMDM0YzM4MyJ9fX0";
+
+        }
 
         ItemStack head = new ItemStack(Material.PLAYER_HEAD,1);
         if (url.isEmpty()) return head;
@@ -120,10 +138,10 @@ public class EntityKilled implements Listener {
         profile.getProperties().put("textures", new Property("textures", url));
 
         try {
-            Method mtd = skullMeta.getClass().getDeclaredMethod("setProfile", GameProfile.class);
+            Field mtd = skullMeta.getClass().getDeclaredField("profile");
             mtd.setAccessible(true);
-            mtd.invoke(skullMeta, profile);
-        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException ex) {
+            mtd.set(skullMeta, profile);
+        } catch (IllegalAccessException | NoSuchFieldException ex) {
             ex.printStackTrace();
         }
 
@@ -156,6 +174,7 @@ public class EntityKilled implements Listener {
             ItemStack it =new ItemStack(Material.SKELETON_SKULL);
             return it;
         }
+
         if(entity == EntityType.SHEEP){
         Sheep sheep=(Sheep)ett;
         name=sheep.getColor().name().toLowerCase().substring(0, 1).toUpperCase() +sheep.getColor().name().toLowerCase().substring(1)+" Sheep Head";
@@ -197,6 +216,38 @@ public class EntityKilled implements Listener {
             name=parrot.getVariant().toString() .toLowerCase().substring(0, 1).toUpperCase() +parrot.getVariant().toString() .toLowerCase().substring(1)+" Parrot Head";
 
         }
+        if(entity==EntityType.RABBIT){
+            Rabbit rabbit =(Rabbit)ett;
+            name=rabbit.getRabbitType().toString() .toLowerCase().substring(0, 1).toUpperCase() +rabbit.getRabbitType().toString() .toLowerCase().substring(1)+" Rabbit Head";
+
+        }
+
+        if(entity == EntityType.TRADER_LLAMA){
+            TraderLlama traderLlama=(TraderLlama) ett;
+            name=traderLlama.getColor().name().toLowerCase().substring(0, 1).toUpperCase() +traderLlama.getColor().name().toLowerCase().substring(1)+" Trader Llama Head";
+        }
+
+        if (entity == EntityType.ZOMBIE_VILLAGER){
+            ZombieVillager zvillager=(ZombieVillager) ett;
+            name= zvillager.getVillagerProfession().toString().toLowerCase().substring(0, 1).toUpperCase() +zvillager.getVillagerProfession().toString().toLowerCase().substring(1)+" Zombie Villager Head";
+
+            if(zvillager.getVillagerProfession().toString()=="NONE")
+                name = "Unemployed Villeger head";
+        }
+        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzE5NmViOGQ1OTljNGZlZjUzYTk3MTc2YjcyZmY4ZmM0MWUzMmE2NmExNTlmZDQ1MTkwYTBkYTE1NDU4N2UxMiJ9fX0")
+            name="Invulnerable Wither Head";
+
+        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjM3YzU4MTRhOTJmOGVjMGY2YWU5OTMzYWJlOTU0MmUxNjUxOTA3NjhlNzYwNDc4NTQzYWViZWVkNDAyN2MyNyJ9fX0")
+            name="Armored Wither Head";
+
+        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDM2ODJiMDYyMDNiOWRlNGMyODU0MTA3MWEyNmNkYzM0MGRkMjVkNGMzNzJiNzAyM2VjMmY0MTIwMjFkNjJmNyJ9fX0")
+            name="Armored Invulnerable Wither Head";
+
+        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGQxYWE3ZTNiOTU2NGIzODQ2ZjFkZWExNGYxYjFjY2JmMzk5YmJiMjNiOTUyZGJkN2VlYzQxODAyYTI4OWM5NiJ9fX0")
+            name="Angry Wolf Head";
+
+
+
 
 
         String finalName =name.replace("_"," ");
@@ -204,10 +255,17 @@ public class EntityKilled implements Listener {
         skullMeta.setDisplayName(finalName);
         skullMeta.setLocalizedName(finalName);
 
+
+
+
         head.setItemMeta(skullMeta);
 
 
 
+
+
+
+        //ItemStack itemStack=CraftItemStack.asBukkitCopy(stack) ;
 
         return head;
     }
