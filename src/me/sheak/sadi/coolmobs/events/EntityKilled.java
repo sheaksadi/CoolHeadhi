@@ -37,6 +37,8 @@ public class EntityKilled implements Listener {
 
         LivingEntity ett = e.getEntity();
 
+
+
         if(!(ett.getKiller() instanceof  Player)){
             return;
         }
@@ -69,15 +71,15 @@ public class EntityKilled implements Listener {
 
 
 
-        if(xo.get() ==true)
-           return;
+        //if(xo.get() ==true)
+          // return;
 
 
 
 
         Mob m =new Mob();
         String url= m.sortmob(e.getEntityType(),e.getEntity()) ;
-        ItemStack item = getCustomSkull(url,e.getEntityType().toString().toLowerCase().substring(0, 1).toUpperCase() + e.getEntityType().toString().toLowerCase().substring(1)  +" head",e.getEntityType(),entity);
+        ItemStack item = getCustomSkull(url,e.getEntityType().toString().toLowerCase().substring(0, 1).toUpperCase() + e.getEntityType().toString().toLowerCase().substring(1)  +" Head",e.getEntityType(),entity);
 
         if (item==null)
             return;
@@ -129,13 +131,18 @@ public class EntityKilled implements Listener {
 
         }
 
+
+
         ItemStack head = new ItemStack(Material.PLAYER_HEAD,1);
         if (url.isEmpty()) return head;
 
+        UUID uuid=new UUID(-1975288126,203552561);
+
         SkullMeta skullMeta = (SkullMeta) head.getItemMeta();
-        GameProfile profile = new GameProfile(UUID.randomUUID(), null);
+        GameProfile profile = new GameProfile(uuid, null);
 
         profile.getProperties().put("textures", new Property("textures", url));
+
 
         try {
             Field mtd = skullMeta.getClass().getDeclaredField("profile");
@@ -245,7 +252,8 @@ public class EntityKilled implements Listener {
 
         if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGQxYWE3ZTNiOTU2NGIzODQ2ZjFkZWExNGYxYjFjY2JmMzk5YmJiMjNiOTUyZGJkN2VlYzQxODAyYTI4OWM5NiJ9fX0")
             name="Angry Wolf Head";
-
+        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjcxMzA4NWE1NzUyN2U0NTQ1OWMzOGZhYTdiYjkxY2FiYjM4MWRmMzFjZjJiZjc5ZDY3YTA3MTU2YjZjMjMwOSJ9fX0")
+             name="Shivering Strider Head";
 
 
 
