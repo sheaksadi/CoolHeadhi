@@ -4,6 +4,7 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import me.sheak.sadi.coolmobs.Main;
 import me.sheak.sadi.coolmobs.mobhead.Mob;
+import me.sheak.sadi.coolmobs.mobhead.MobType;
 import net.minecraft.server.v1_16_R3.NBTBase;
 import net.minecraft.server.v1_16_R3.NBTTagCompound;
 import net.minecraft.server.v1_16_R3.NBTTagString;
@@ -71,15 +72,19 @@ public class EntityKilled implements Listener {
 
 
 
-        //if(xo.get() ==true)
-          // return;
+       // if(xo.get() ==true)
+          //return;
+
+
+        MobType mobType=new MobType();
 
 
 
 
         Mob m =new Mob();
         String url= m.sortmob(e.getEntityType(),e.getEntity()) ;
-        ItemStack item = getCustomSkull(url,e.getEntityType().toString().toLowerCase().substring(0, 1).toUpperCase() + e.getEntityType().toString().toLowerCase().substring(1)  +" Head",e.getEntityType(),entity);
+        String name=mobType.rsortmob(url);
+        ItemStack item = getCustomSkull(url,name,e.getEntityType(),entity);
 
         if (item==null)
             return;
@@ -152,21 +157,7 @@ public class EntityKilled implements Listener {
             ex.printStackTrace();
         }
 
-        if (entity == EntityType.VILLAGER){
-            Villager villager=(Villager) ett;
-            name= villager.getProfession().toString().toLowerCase().substring(0, 1).toUpperCase() +villager.getProfession().toString().toLowerCase().substring(1)+"'s Head";
 
-            if(villager.getProfession().toString()=="NONE")
-                name = "Unemployed Villeger head";
-        }
-        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTZiNzRlMDUyYjc0Mjg4Nzk5YmE2ZDlmMzVjNWQwMjIxY2Y4YjA0MzMxNTQ3ZWMyZjY4ZDczNTk3YWUyYzliIn19fQ")
-            name="Angry Pollinated Bee Head";
-
-        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTQwMDIyM2YxZmE1NDc0MWQ0MjFkN2U4MDQ2NDA5ZDVmM2UxNWM3ZjQzNjRiMWI3Mzk5NDAyMDhmM2I2ODZkNCJ9fX0")
-            name="Angry Bee Head";
-
-        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjcyN2QwYWIwM2Y1Y2QwMjJmODcwNWQzZjdmMTMzY2E0OTIwZWFlOGUxZTQ3YjUwNzQ0MzNhMTM3ZTY5MWU0ZSJ9fX0")
-            name="Pollinated Bee Head";
 
 
         if(url=="costom1"){
@@ -181,6 +172,22 @@ public class EntityKilled implements Listener {
             ItemStack it =new ItemStack(Material.SKELETON_SKULL);
             return it;
         }
+
+        /*   if (entity == EntityType.VILLAGER){
+            Villager villager=(Villager) ett;
+            name= villager.getProfession().toString().toLowerCase().substring(0, 1).toUpperCase() +villager.getProfession().toString().toLowerCase().substring(1)+"'s Head";
+
+            if(villager.getProfession().toString()=="NONE")
+                name = "Unemployed Villeger head";
+        }
+        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTZiNzRlMDUyYjc0Mjg4Nzk5YmE2ZDlmMzVjNWQwMjIxY2Y4YjA0MzMxNTQ3ZWMyZjY4ZDczNTk3YWUyYzliIn19fQ")
+            name="Angry Pollinated Bee Head";
+
+        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTQwMDIyM2YxZmE1NDc0MWQ0MjFkN2U4MDQ2NDA5ZDVmM2UxNWM3ZjQzNjRiMWI3Mzk5NDAyMDhmM2I2ODZkNCJ9fX0")
+            name="Angry Bee Head";
+
+        if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjcyN2QwYWIwM2Y1Y2QwMjJmODcwNWQzZjdmMTMzY2E0OTIwZWFlOGUxZTQ3YjUwNzQ0MzNhMTM3ZTY5MWU0ZSJ9fX0")
+            name="Pollinated Bee Head";
 
         if(entity == EntityType.SHEEP){
         Sheep sheep=(Sheep)ett;
@@ -253,15 +260,15 @@ public class EntityKilled implements Listener {
         if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGQxYWE3ZTNiOTU2NGIzODQ2ZjFkZWExNGYxYjFjY2JmMzk5YmJiMjNiOTUyZGJkN2VlYzQxODAyYTI4OWM5NiJ9fX0")
             name="Angry Wolf Head";
         if(url=="eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjcxMzA4NWE1NzUyN2U0NTQ1OWMzOGZhYTdiYjkxY2FiYjM4MWRmMzFjZjJiZjc5ZDY3YTA3MTU2YjZjMjMwOSJ9fX0")
-             name="Shivering Strider Head";
+             name="Shivering Strider Head"; */
 
 
 
 
-        String finalName =name.replace("_"," ");
+        //String finalName =name.replace("_"," ");
 
-        skullMeta.setDisplayName(finalName);
-        skullMeta.setLocalizedName(finalName);
+        skullMeta.setDisplayName(name);
+        skullMeta.setLocalizedName(name);
 
 
 
