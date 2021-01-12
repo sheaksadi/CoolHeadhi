@@ -59,7 +59,7 @@ public class HeadBreak implements Listener {
 
                 //ItemMeta meta =item.getItemMeta();
 
-               // meta.setDisplayName(name);
+               //w meta.setDisplayName(name);
 
                 //item.setItemMeta(meta);
 

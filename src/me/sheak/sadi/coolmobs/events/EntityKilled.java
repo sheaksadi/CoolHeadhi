@@ -2,14 +2,11 @@ package me.sheak.sadi.coolmobs.events;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+import de.leonhard.storage.Yaml;
 import me.sheak.sadi.coolmobs.Main;
 import me.sheak.sadi.coolmobs.mobhead.Mob;
 import me.sheak.sadi.coolmobs.mobhead.MobType;
-import net.minecraft.server.v1_16_R3.NBTBase;
-import net.minecraft.server.v1_16_R3.NBTTagCompound;
-import net.minecraft.server.v1_16_R3.NBTTagString;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -18,6 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.lang.reflect.Field;
+import java.security.PublicKey;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -29,10 +27,35 @@ public class EntityKilled implements Listener {
         plugin=instance;
     }
 
+    public String getname(String url){
+
+
+        for (String key : plugin.getConfig().getConfigurationSection("Mobtags").getKeys(false)) {
+            for (String key1 : plugin.getConfig().getConfigurationSection("Mobtags."+key).getKeys(false)) {
+                if (plugin.getConfig().getString("Mobtags." + key).equalsIgnoreCase("url")) {
+                    if (plugin.getConfig().getString("Mobtags." + key + "." + key1).equalsIgnoreCase(url)) {
+                        return plugin.getConfig().getString("Mobtags."+key+".name");
+                    }
+                }
+
+            }
+        }
+
+
+        return null;
+    }
+    public String geturl(EntityType entityType){
+
+        return null;
+    }
+
+
+
+
 
     @EventHandler
     public void onkilled(EntityDeathEvent e){
-        plugin.saveDefaultConfig();
+       // plugin.saveDefaultConfig();
 
         Entity entity =e.getEntity();
 
@@ -43,47 +66,54 @@ public class EntityKilled implements Listener {
         if(!(ett.getKiller() instanceof  Player)){
             return;
         }
-        AtomicBoolean xo = new AtomicBoolean(false);
+       // AtomicBoolean xo = new AtomicBoolean(false);
 
 
-        plugin.getConfig().getConfigurationSection("Droppercent.Mobs").getKeys(false).forEach(key ->{
-            if(key.equalsIgnoreCase(e.getEntityType().toString())){
+        for (String key : plugin.getConfig().getConfigurationSection("Droppercent.Mobs").getKeys(false)) {
+            if (key.equalsIgnoreCase(e.getEntityType().toString())) {
                 Double percent = Double.valueOf(0);
-                percent=Double.parseDouble (plugin.getConfig().getString("Droppercent.Mobs."+key));
+                percent = Double.parseDouble(plugin.getConfig().getString("Droppercent.Mobs." + key));
 
 
-                Random random=new Random();
+                Random random = new Random();
 
 
-                int a= (int) (1/percent);
-                int b=random.nextInt(a)+1;
+                int a = (int) (1 / percent);
+                int b = random.nextInt(a) + 1;
                 //testing code
-                ett.getKiller().sendMessage(a+"  d  "+percent+ "  "+b);
+                ett.getKiller().sendMessage(a + "  d  " + percent + "  " + b);
 
 
-                if( b  != 1) {
+                if (b != 1) {
                     plugin.saveDefaultConfig();
-                    xo.set(true);
+                   // return;
 
                 }
 
             }
-        });
+        }
 
 
-
-       // if(xo.get() ==true)
+        // if(xo.get() ==true)
           //return;
 
 
         MobType mobType=new MobType();
 
 
+      //  Yaml yaml =new Yaml("mobs","plugins/CoolHeads");
+
+
+      //  ett.getKiller().sendMessage(yaml.getOrDefault("dad","y"));
 
 
         Mob m =new Mob();
         String url= m.sortmob(e.getEntityType(),e.getEntity()) ;
-        String name=mobType.rsortmob(url);
+        //String name=mobType.rsortmob(url);
+        ett.getKiller().sendMessage("s");
+        String name=getname(url);
+        ett.getKiller().sendMessage(name);
+
         ItemStack item = getCustomSkull(url,name,e.getEntityType(),entity);
 
         if (item==null)
