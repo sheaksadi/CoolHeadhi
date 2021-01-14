@@ -40,7 +40,7 @@ public class PlayerHead {
         else
             meta.setDisplayName(p1.getDisplayName() + "'s Head");
 
-        List<String> lore = new ArrayList<String>();
+        List<String> lore = new ArrayList<>();
         //esteregg code
         if(p2.getName().equalsIgnoreCase("sheaksadi"))
             lore.add(ChatColor.BOLD+""+ ChatColor.DARK_PURPLE+ "killed by The Great SheakSadi");

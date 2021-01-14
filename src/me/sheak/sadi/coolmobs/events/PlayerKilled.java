@@ -12,7 +12,7 @@ public class PlayerKilled implements Listener {
         Player p =e.getEntity();
         if(p.isDead()){
             Player p1= p.getKiller();
-            if (p1 instanceof Player){
+            if (p1 != null){
                 new PlayerHead(p,p1);
             }
         }

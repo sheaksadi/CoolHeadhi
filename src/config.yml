@@ -5,35 +5,35 @@ Droppercent:
     creeper: 0.005
     zombie: 0.002
     skeleton: 0.002
-    witherskeleton: 0.025
+    wither_skeleton: 0.025
     spider: 0.002
     enderman: 0.002
     blaze: 0.002
-    horse: 0.002
-    donkey: 0.002
-    squid: 0.005
+    horse: 0.02
+    donkey: 0.02
+    squid: 0.05
     silverfish: 0.005
     enderdragon: 0.05
-    slime: 0.001
-    irongolem: 0.005
-    mushroomcow: 0.002
+    slime: 0.01
+    iron_golem: 0.005
+    mushroom_cow: 0.02
     bat: 0.005
-    zombifiedpiglin: 0.00
-    snowman: 0.002
+    zombified_piglin: 0.002
+    snowman: 0.02
     ghast: 0.005
-    pig: 0.002
-    sheep: 0.002
-    cow: 0.002
-    chicken: 0.002
-    ocelot: 0.005
+    pig: 0.02
+    sheep: 0.02
+    cow: 0.02
+    chicken: 0.02
+    ocelot: 0.05
     witch: 0.005
     magmacube: 0.001
-    wolf: 0.002
-    cavespider: 0.002
+    wolf: 0.02
+    cave_spider: 0.002
     rabbit: 0.002
     guardian: 0.025
-    elderguardian: 0.030
-    polarbear: 0.005
+    elder_guardian: 0.030
+    polar_bear: 0.005
     shulker: 0.002
     stray: 0.005
     endermite: 0.002
@@ -42,28 +42,35 @@ Droppercent:
     vindicator: 0.005
     wither: 0.005
     vex: 0.004
-    llama: 0.008
-    parrot: 0.008
+    llama: 0.08
+    parrot: 0.08
     husk: 0.002
-    zombievillager: 0.002
-    skeletonhorse: 0.002
-    zombiehorse: 0.002
+    zombie_villager: 0.5
+    skeleton_horse: 0.002
+    zombie_horse: 0.002
     mule: 0.002
     turtle: 0.002
     phantom: 0.001
     cod: 0.002
     salmon: 0.002
     pufferfish: 0.002
-    tropicalfish: 0.002
+    tropical_fish: 0.002
     drowned: 0.002
     dolphin: 0.002
     #new added mobs
-    villager: 1.0
+    villager: 0.5
+    bee: 0.02
+    fox: 0.02
+    hoglin: 0.005
+    panda: 0.02
+    piglin: 0.002
+    piglin_brute: 0.005
+    pillager: 0.005
+    ravager: 0.005
+    snow_golem: 0.02
+    strider: 0.02
+    trader_llama: 0.002
+    wandering_trader: 0.5
+    zoglin: 0.005
 
-
-Mobtags:
-  Cow:
-    - url: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjNkNjIxMTAwZmVhNTg4MzkyMmU3OGJiNDQ4MDU2NDQ4Yzk4M2UzZjk3ODQxOTQ4YTJkYTc0N2Q2YjA4YjhhYiJ9fX0
-    - name: Cow Head
-    - entitytype: COW
 
