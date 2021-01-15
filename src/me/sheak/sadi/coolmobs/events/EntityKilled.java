@@ -28,9 +28,15 @@ public class EntityKilled implements Listener {
         Entity entity =e.getEntity();
         LivingEntity ett = e.getEntity();
 
-
         if(ett.getKiller() == null){
             return;
+        }
+
+        if(entity instanceof Ageable){
+            Ageable ageableentt =(Ageable)entity;
+            if (!ageableentt.isAdult()){
+                return;
+            }
         }
 
 
@@ -46,7 +52,7 @@ public class EntityKilled implements Listener {
                 int a = (int) (1 / percent);
                 int b = random.nextInt(a) + 1;
                 //testing code
-                ett.getKiller().sendMessage(b + "  in  " +  a +" when " +percent );
+                //ett.getKiller().sendMessage(b + "  in  " +  a +" when " +percent );
 
 
                 if (b != 1) {
@@ -63,6 +69,9 @@ public class EntityKilled implements Listener {
         Mob m =new Mob();
 
         String url= m.sortmob(e.getEntityType(),e.getEntity()) ;
+
+        if(url==null)
+            return;
 
         String name=mobType.rsortmob(url);
 
@@ -99,7 +108,7 @@ public class EntityKilled implements Listener {
 
         }
 
-
+//     creates head
 
         ItemStack head = new ItemStack(Material.PLAYER_HEAD,1);
         if (url.isEmpty()) return head;
@@ -133,7 +142,6 @@ public class EntityKilled implements Listener {
 
 
         skullMeta.setDisplayName(name);
-        skullMeta.setLocalizedName(name);
 
         head.setItemMeta(skullMeta);
 

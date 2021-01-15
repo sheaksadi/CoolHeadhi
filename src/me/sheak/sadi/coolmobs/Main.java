@@ -15,7 +15,7 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerKilled(), this);
         getServer().getPluginManager().registerEvents(new HeadBreak(), this);
         getServer().getPluginManager().registerEvents(new EntityKilled(this), this);
-        getServer().getConsoleSender().sendMessage(ChatColor.LIGHT_PURPLE + "Coolheads plugin is workink");
+        getServer().getConsoleSender().sendMessage(ChatColor.LIGHT_PURPLE + "Coolheads plugin is workin");
     }
 
     @Override

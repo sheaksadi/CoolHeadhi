@@ -27,6 +27,7 @@ public class HeadBreak implements Listener {
             int y=e.getBlock().getLocation().getBlockY();
             int z=e.getBlock().getLocation().getBlockZ();
 
+            //getting url from block (head)
             CraftWorld ws = (CraftWorld) e.getBlock().getLocation().getWorld();
             NBTTagCompound ntc;
             BlockPosition bp =new BlockPosition(x,y,z);
@@ -49,20 +50,14 @@ public class HeadBreak implements Listener {
 
                 e.setDropItems(false);
 
-                    ItemStack head =getCustomSkull(url,name);
+                ItemStack head =getCustomSkull(url,name);
 
 
                 block.getLocation().getWorld().dropItemNaturally(block.getLocation(),head);
 
-
-
             }
-
-
         }
     }
-
-
 
     public ItemStack getCustomSkull(String url, String name) {
 
@@ -89,18 +84,7 @@ public class HeadBreak implements Listener {
             ex.printStackTrace();
         }
 
-
-
-
-
-
-        String finalName =name.replace("_"," ");
-
-        skullMeta.setDisplayName(finalName);
-        skullMeta.setLocalizedName(finalName);
-
-
-
+        skullMeta.setDisplayName(name);
 
         head.setItemMeta(skullMeta);
 

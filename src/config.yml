@@ -27,14 +27,14 @@ Droppercent:
     chicken: 0.02
     ocelot: 0.05
     witch: 0.005
-    magmacube: 0.001
+    magma_cube: 0.001
     wolf: 0.02
     cave_spider: 0.002
     rabbit: 0.002
     guardian: 0.025
     elder_guardian: 0.030
     polar_bear: 0.005
-    shulker: 0.002
+    shulker: 0.02
     stray: 0.005
     endermite: 0.002
     evoker: 0.005
@@ -72,5 +72,6 @@ Droppercent:
     trader_llama: 0.002
     wandering_trader: 0.5
     zoglin: 0.005
+
 
 
