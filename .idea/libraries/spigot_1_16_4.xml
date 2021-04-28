@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="spigot-1.16.4">
     <CLASSES>
-      <root url="jar://E:/server/spigot-1.16.4.jar!/" />
+      <root url="jar:///media/sheaksadi/New Volume/bunjee/server/spigot-1.16.4.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://E:/server/spigot-1.16.4.jar!/" />
+      <root url="jar:///media/sheaksadi/New Volume/bunjee/server/spigot-1.16.4.jar!/" />
     </SOURCES>
   </library>
 </component>
