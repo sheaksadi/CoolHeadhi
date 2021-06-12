@@ -72,6 +72,10 @@ Droppercent:
     trader_llama: 0.002
     wandering_trader: 0.5
     zoglin: 0.005
+    axolotl: 0.02
+    goat: 0.02
+    glow_squid: 0.05
+
 
 
 

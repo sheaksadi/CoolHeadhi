@@ -305,7 +305,7 @@ public class Mob {
 
             case "MUSHROOM_COW":
                 MushroomCow mushroomCow=(MushroomCow)ett;
-                if(mushroomCow.getVariant()==MushroomCow.Variant.BROWN)
+                if(mushroomCow.getVariant()== MushroomCow.Variant.BROWN)
                     return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2U2NDY2MzAyYTVhYjQzOThiNGU0NzczNDk4MDhlNWQ5NDAyZWEzYWQ4ZmM0MmUyNDQ2ZTRiZWQwYTVlZDVlIn19fQ";
 
                 return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGE4MDYwNmU4MmM2NDJmMTQxNTg3NzMzZTMxODBhZTU3ZjY0NjQ0MmM5ZmZmZDRlNTk5NzQ1N2UzNDMxMWEyOSJ9fX0";
@@ -526,8 +526,45 @@ public class Mob {
 
            // case"WITHER_SKELETON":
                // return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzk1M2I2YzY4NDQ4ZTdlNmI2YmY4ZmIyNzNkNzIwM2FjZDhlMWJlMTllODE0ODFlYWQ1MWY0NWRlNTlhOCJ9fX0";
+
+
+            case"AXOLOTL":
+                Axolotl axolotl=(Axolotl)ett;
+                if (axolotl.getAge()<0){
+                    return null;
+                }
+
+                if (axolotl.getVariant()==Axolotl.Variant.BLUE){
+                    return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWVmNjMwNjU3ZTRhMjc5YjBiN2VhMGY2NzkwNTkyMGFmMzY1ZjljODRjYTlmMzRhMzJiNTMzNDNmZjYyOTkxMCJ9fX0";
+                }
+                if (axolotl.getVariant()==Axolotl.Variant.CYAN){
+                    return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTFjMmQwYzNiOTZhZDQ1YjQ2NjM4OGUwMjhiMjQ3YWFmZTM2YjI2YjEyYzQxMWVjYjcyZTliNTBlYTIxZTUyYyJ9fX0";
+                }
+                if (axolotl.getVariant()==Axolotl.Variant.GOLD){
+                    return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2Y4MGNjMTQ5MmU0NDY2OGNjY2RiNDAxNzhjM2E2Njg5ZThkZmMwZDIzNGU5ODU1M2ZiN2RlYmMyNmZjYWVhYyJ9fX0";
+                }
+                if (axolotl.getVariant()==Axolotl.Variant.LUCY){
+                    return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2I4M2EzOGE0NThjM2NjYTA3NjFlMmM4MjEwYzZmNWQyZjMzODBlODYwZDUwZDJmNDc1NjUxNmEyNjQyNjE3ZCJ9fX0";
+                }
+                if (axolotl.getVariant()==Axolotl.Variant.WILD){
+                    return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGQ3ZWZlMDIwMTJjZjMxYWUyNzA4ZTdkN2RmMDc5NzI2NTc1YzdlZTg1MDQzMjgxNzVmZTU0NDcwODE4N2RjZSJ9fX0";
+                }
+                return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2I4M2EzOGE0NThjM2NjYTA3NjFlMmM4MjEwYzZmNWQyZjMzODBlODYwZDUwZDJmNDc1NjUxNmEyNjQyNjE3ZCJ9fX0";
+
+
+            case "GOAT":
+                Goat goat = (Goat)ett;
+                if (goat.isScreaming()){
+                    return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmRhNDg1YWMyMzUxMjQyMDg5MWE1YWUxZThkZTk4OWYwOTFkODQ4ZDE1YTkwNjhkYTQ3MjBkMzE2ZmM0MzMwZiJ9fX0";
+                }
+                return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODc0NzNlMDU1ZGY2ZTdmZDk4NjY0ZTlmZGI2MzY3NWYwODgxMDYzMDVkNzQ0MDI0YTQxYmIzNTg5MThhMTQyYiJ9fX0";
+
+            case "GLOW_SQUID"  :
+                return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGIyZTliNjU4MWZlZDQ4YTk5ZTAzMjMwOTFhZDVjM2MzMjZjZGEyMDA3M2UyOGE5MDJhMDM3M2Y3MzgyYjU5ZiJ9fX0";
+
+
             default:
-                return null;
+            return null;
 
 
         }

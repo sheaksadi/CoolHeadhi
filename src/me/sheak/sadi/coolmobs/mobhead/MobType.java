@@ -547,8 +547,43 @@ public class MobType  {
                // return "Wither Skeleton Head";
 
 
+            //case"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzk1M2I2YzY4NDQ4ZTdlNmI2YmY4ZmIyNzNkNzIwM2FjZDhlMWJlMTllODE0ODFlYWQ1MWY0NWRlNTlhOCJ9fX0":
+               // return "Wither Skeleton Head";
 
-/*
+
+            case"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2I4M2EzOGE0NThjM2NjYTA3NjFlMmM4MjEwYzZmNWQyZjMzODBlODYwZDUwZDJmNDc1NjUxNmEyNjQyNjE3ZCJ9fX0":
+                return "Pink Axolotl Head";
+
+
+            case"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGQ3ZWZlMDIwMTJjZjMxYWUyNzA4ZTdkN2RmMDc5NzI2NTc1YzdlZTg1MDQzMjgxNzVmZTU0NDcwODE4N2RjZSJ9fX0":
+                return "Brown Axolotl Head";
+
+
+            case"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2Y4MGNjMTQ5MmU0NDY2OGNjY2RiNDAxNzhjM2E2Njg5ZThkZmMwZDIzNGU5ODU1M2ZiN2RlYmMyNmZjYWVhYyJ9fX0":
+                return "Gold Axolotl Head";
+
+            case"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTFjMmQwYzNiOTZhZDQ1YjQ2NjM4OGUwMjhiMjQ3YWFmZTM2YjI2YjEyYzQxMWVjYjcyZTliNTBlYTIxZTUyYyJ9fX0":
+                return "Cyan Axolotl Head";
+
+            case"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWVmNjMwNjU3ZTRhMjc5YjBiN2VhMGY2NzkwNTkyMGFmMzY1ZjljODRjYTlmMzRhMzJiNTMzNDNmZjYyOTkxMCJ9fX0":
+                return "Blue Axolotl Head";
+
+            case "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGIyZTliNjU4MWZlZDQ4YTk5ZTAzMjMwOTFhZDVjM2MzMjZjZGEyMDA3M2UyOGE5MDJhMDM3M2Y3MzgyYjU5ZiJ9fX0":
+                return "Glow Squid Head";
+
+            case "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmRhNDg1YWMyMzUxMjQyMDg5MWE1YWUxZThkZTk4OWYwOTFkODQ4ZDE1YTkwNjhkYTQ3MjBkMzE2ZmM0MzMwZiJ9fX0":
+                return "Screaming Goat Head";
+
+            case "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODc0NzNlMDU1ZGY2ZTdmZDk4NjY0ZTlmZGI2MzY3NWYwODgxMDYzMDVkNzQ0MDI0YTQxYmIzNTg5MThhMTQyYiJ9fX0":
+                return "Goat Head";
+
+
+
+
+
+
+
+            /*
 
            */
         }
